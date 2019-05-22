@@ -1,0 +1,20 @@
+﻿@page
+@model S2.AspNet.Repetition.Pages.NewMemeModel
+@{
+    string textSizeRem;
+    ViewData["Title"] = "NewMeme";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.MemeName<br /><br /></h1>
+@if (Model.MemeText != "")
+{
+    textSizeRem = $"{Model.TextSize}rem";
+    <div class="generatedMeme">
+        <img src="@Model.SelectedImageUrl" />
+        <div class="@Model.TextPosition">
+            <h2 style="font-size: @textSizeRem; color: @Model.TextColorStyle;">@Model.MemeText</h2>
+        </div>
+    </div>
+}
+    <a href="Index">Tilbage til memegeneratoren</a>
